@@ -1,0 +1,19 @@
+.imagesList{
+    width: 100%;
+    margin: 16px 0;
+
+    &__img{
+        width: 295px;
+        height: 250px;
+        border: 1px solid gray;
+        border-radius: 12px;
+    }
+    @media (min-width:450px) {
+        &__item{
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            flex-wrap: wrap;
+        } 
+    }
+}

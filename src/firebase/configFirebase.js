@@ -40,7 +40,7 @@ export const storage = getStorage(app);
 export async function subirImagenFirebase(file) {
     // const storageRef = ref(storage, uuidv4());
     // const storageRef = ref(storage, file.name);
-    const storageRef = ref(storage, "fotos/" + uuidv4() + "__" + file.name);
+    const storageRef = ref(storage, "saveImages/" + uuidv4() + "__" + file.name);
 
     /*
     const storageRef = ref(storage, `images/${file.name}`);
@@ -62,7 +62,7 @@ export async function subirImagenFirebase(file) {
  * La función fetchImages nos permite obtener todas las imagenes subidas a Firebase
  */
 export async function obtenerImagenesFirebase() {
-    const listRef = ref(storage, "fotos/"); // Referencia a la carpeta "fotos/" en Firebase Storage.
+    const listRef = ref(storage, "saveImages/"); // Referencia a la carpeta "saveImages/" en Firebase Storage.
     const res = await listAll(listRef); // Obtiene todas las referencias de los archivos dentro de la carpeta.
     const urls = await Promise.all(
         res.items.map((itemRef) => getDownloadURL(itemRef)) // Obtiene las URLs de descarga de cada archivo.
